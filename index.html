@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quadvapor</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; font-family: 'Orbitron', sans-serif; scroll-behavior:smooth; }
+body { background-color: #0a0a0a; color:#fff; line-height:1.5; }
+header { position:fixed; width:100%; top:0; left:0; display:flex; justify-content:space-between; align-items:center; padding:15px 50px; background:rgba(10,10,10,0.95); z-index:1000; }
+header h1 { font-size:2em; color:#ff0080; letter-spacing:2px; }
+nav a { color:#fff; margin-left:20px; text-decoration:none; transition:0.3s; font-weight:500; }
+nav a:hover { color:#ff0080; }
+.hero { height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; background: radial-gradient(circle, #111 0%, #000 100%); padding:0 20px; }
+.hero h2 { font-size:2.5em; margin-bottom:20px; color:#ff0080; animation:fadeInDown 1.5s ease; }
+.hero p { font-size:1.2em; width:100%; max-width:700px; animation:fadeInUp 1.5s ease; }
+.btn { margin-top:20px; padding:12px 35px; background:#ff0080; border:none; border-radius:8px; cursor:pointer; font-weight:bold; transition:0.3s; text-transform:uppercase; }
+.btn:hover { background:#e60073; }
+section { padding:100px 50px; }
+h3 { font-size:2em; margin-bottom:40px; text-align:center; color:#ff0080; }
+.products { display:grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap:20px; }
+.product { background:#111; padding:20px; border-radius:10px; text-align:center; transition:0.3s; }
+.product:hover { transform: scale(1.05); box-shadow:0 0 20px #ff0080; }
+.product img { width:100%; border-radius:10px; margin-bottom:10px; }
+.product h4 { font-size:1.2em; margin-bottom:5px; }
+.product p { font-size:0.9em; color:#ccc; }
+.product .order-btn { margin-top:10px; padding:10px 20px; background:#ff0080; border:none; border-radius:5px; cursor:pointer; font-weight:bold; transition:0.3s; }
+.product .order-btn:hover { background:#e60073; }
+.contact-form { max-width:600px; margin:0 auto; display:flex; flex-direction:column; }
+.contact-form input, .contact-form textarea { margin-bottom:20px; padding:15px; border:none; border-radius:8px; font-size:1em; }
+.contact-form button { background:#ff0080; color:#fff; border:none; padding:15px; border-radius:8px; cursor:pointer; font-weight:bold; transition:0.3s; }
+.contact-form button:hover { background:#e60073; }
+footer { text-align:center; padding:30px; background:#111; font-size:0.9em; color:#888; }
+@keyframes fadeInDown { from {opacity:0; transform:translateY(-50px);} to {opacity:1; transform:translateY(0);} }
+@keyframes fadeInUp { from {opacity:0; transform:translateY(50px);} to {opacity:1; transform:translateY(0);} }
+/* Responsive */
+@media(max-width:768px){ header { padding:15px 20px; } .hero h2{font-size:2em;} .hero p{font-size:1em;} section{padding:80px 20px;} }
+</style>
+</head>
+<body>
+
+<header>
+    <h1>Quadvapor</h1>
+    <nav>
+        <a href="#products">Products</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h2>Heavy day? Quadro lights it up and sends it in the air as smoke!!</h2>
+    <p>Experience all your favorite OXBAR flavors with Quadvapor. Smooth, intense, and delivered straight to your door.</p>
+</section>
+
+<section id="products">
+    <h3>Our Flavors</h3>
+    <div class="products">
+        <div class="product" style="background:#ff6666;">
+            <img src="images/strawberry.jpg" alt="Strawberry Oxbar">
+            <h4>Strawberry</h4>
+            <p>Sweet, fresh, and vibrant flavor.</p>
+            <button class="order-btn" onclick="orderWhatsApp('Strawberry')">Order via WhatsApp</button>
+        </div>
+        <div class="product" style="background:#66ccff;">
+            <img src="images/mint.jpg" alt="Mint Oxbar">
+            <h4>Mint</h4>
+            <p>Cool, refreshing, perfect after meals.</p>
+            <button class="order-btn" onclick="orderWhatsApp('Mint')">Order via WhatsApp</button>
+        </div>
+        <div class="product" style="background:#ffcc66;">
+            <img src="images/mango.jpg" alt="Mango Oxbar">
+            <h4>Mango</h4>
+            <p>Tropical sweetness in every puff.</p>
+            <button class="order-btn" onclick="orderWhatsApp('Mango')">Order via WhatsApp</button>
+        </div>
+        <div class="product" style="background:#cc66ff;">
+            <img src="images/grape.jpg" alt="Grape Oxbar">
+            <h4>Grape</h4>
+            <p>Rich and juicy taste explosion.</p>
+            <button class="order-btn" onclick="orderWhatsApp('Grape')">Order via WhatsApp</button>
+        </div>
+        <!-- Add other flavors similarly -->
+    </div>
+</section>
+
+<section id="services">
+    <h3>Services</h3>
+    <p style="text-align:center; max-width:700px; margin:0 auto;">
+        Online orders and shipment processes made seamless. Call/WhatsApp: <strong>+9779860397626</strong>. Pay via Khalti or direct transfer.
+    </p>
+</section>
+
+<section id="contact">
+    <h3>Contact</h3>
+    <form class="contact-form" onsubmit="return submitForm(event)">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="Your Message" rows="5" required></textarea>
+        <button type="submit">Send Message</button>
+    </form>
+</section>
+
+<footer>
+    &copy; 2025 Quadvapor. Contact: +9779860397626
+</footer>
+
+<script>
+// WhatsApp order function
+function orderWhatsApp(flavor){
+    let phone = '9779860397626';
+    let message = encodeURIComponent(`Hello! I want to order Quadvapor flavor: ${flavor}`);
+    window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
+}
+
+// Contact form dummy
+function submitForm(e){
+    e.preventDefault();
+    alert('Message sent! We will contact you soon.');
+    return false;
+}
+</script>
+
+<!-- Khalti Payment Example -->
+<script src="https://khalti.com/static/khalti-checkout.js"></script>
+<script>
+function payWithKhalti(amount=1000){
+    var config = {
+        "publicKey": "test_public_key_dc74a9e1a1xxxx", // Replace with real public key
+        "productIdentity": "QUADVAPOR_ORDER",
+        "productName": "Quadvapor Order",
+        "productUrl": window.location.href,
+        "paymentPreference": ["KHALTI"],
+        "eventHandler": {
+            onSuccess (payload) {
+                alert("Payment Successful! Payment ID: "+payload.idx);
+            },
+            onError (error) {
+                alert("Payment Failed!");
+            },
+            onClose () {
+                alert("Payment Closed!");
+            }
+        }
+    };
+    var checkout = new KhaltiCheckout(config);
+    checkout.show({amount: amount});
+}
+</script>
+
+</body>
+</html>
